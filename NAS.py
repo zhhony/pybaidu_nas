@@ -31,14 +31,14 @@ req_contant = json.loads(req_contant)
 acc_dict = dict([('access_token', req_contant['access_token']), ('expires_in',
                                                                  req_contant['expires_in']/3600/24), ('refresh_token', req_contant['refresh_token'])])
 acc_json = json.dumps(acc_dict, indent=4, ensure_ascii=False, sort_keys=True)
-with open('pan.json', 'w') as file:
+with open('./config/pan.json', 'w') as file:
     file.write(acc_json)
 
 # ------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------
 # 从本地文件中获取access_token等变量的值
 
-with open('pan.json', 'r') as file:
+with open('./config/pan.json', 'r') as file:
     acc_json = file.read()
     acc_dict = json.loads(acc_json)
     access_token = acc_dict['access_token']
